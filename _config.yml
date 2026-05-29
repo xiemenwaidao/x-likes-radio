@@ -1,15 +1,19 @@
 actors:
   usagi:
     image_url: /images/actors/usagi.png
-    name: ウサギ
+    name: うさぴょむ
     url: https://z.xiemen.me
   neko:
     image_url: /images/actors/neko.png
     name: 猫
     url: https://z.xiemen.me
+  gorilla:
+    image_url: /images/actors/gorilla.png
+    name: ゴリラ
+    url: https://z.xiemen.me
 author: xiemenwaidao
-description: 集讚館で日々いいねしたツイートを、動物キャラの親友2人 (ウサギと猫) が振り返るウィークリーポッドキャスト。
-description_long: 集讚館ラジオは、タイムラインに流れてきたいいねの履歴を、親友2人 (ウサギと猫) が一緒に振り返るウィークリーポッドキャストです。AI・プログラミング・アート・ゲーム・カルチャーなど、その週に集まった話題を、関連リンクやニュースの文脈も交えながらゆっくり辿ります。ナレーションはすべて合成音声でお届けしています。
+description: 集讚館で日々いいねしたツイートを、動物キャラの親友たち (うさぴょむ・猫・ゴリラ…) が振り返るウィークリーポッドキャスト。
+description_long: 集讚館ラジオは、タイムラインに流れてきたいいねの履歴を、動物キャラの親友たち (うさぴょむ・猫・ゴリラ…) が一緒に振り返るウィークリーポッドキャストです。AI・プログラミング・アート・ゲーム・カルチャーなど、その週に集まった話題を、関連リンクやニュースの文脈も交えながらゆっくり辿ります。ナレーションはすべて合成音声でお届けしています。
 email: codas-bringer7r@icloud.com
 exclude:
   - docker
