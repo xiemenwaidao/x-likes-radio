@@ -17,20 +17,22 @@
             </div>
           </header>
           <section class="card-body markdown">
+            {% comment %} audio_file_path が絶対 URL (外部ホスト) ならそのまま、相対なら site.github.url を前置 {% endcomment %}
+            {% if page.audio_file_path contains '://' %}{% assign audio_url = page.audio_file_path %}{% else %}{% assign audio_url = page.audio_file_path | prepend:site.github.url %}{% endif %}
             <p>
               <audio
                 class="mejs-player"
                 controls=""
                 data-mejsoptions='{"alwaysShowControls": true, "alwaysShowHours": true, "enableAutosize": true, "features": ["playpause", "progress", "current", "duration", "volume", "speed"]}'
                 preload="auto"
-                src="{{ page.audio_file_path | prepend:site.github.url }}"
+                src="{{ audio_url }}"
                 width="100%"
               >
               </audio>
             </p>
             <p class="text-right">
               <small>
-                <a href="{{ page.audio_file_path | prepend:site.github.url }}">MP3ファイルをダウンロード</a>
+                <a href="{{ audio_url }}">MP3ファイルをダウンロード</a>
               </small>
             </p>
             <h2>
