@@ -1,3 +1,3 @@
 # Yattecast
 
-https://r7kamura.github.io/yattecast/
+https://xiemenwaidao.github.io/x-likes-radio/
