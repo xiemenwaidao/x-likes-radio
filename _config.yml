@@ -1,16 +1,16 @@
 actors:
-  alice:
-    image_url: /images/actors/alice.png
-    name: alice
-    url: http://sns.example.com/alice
-  bob:
-    image_url: /images/actors/bob.png
-    name: bob
-    url: http://sns.example.com/bob
-author: alice
-description: Example description
-description_long: Example long description
-email: info@example.com
+  usagi:
+    image_url: /images/actors/usagi.png
+    name: ウサギ
+    url: https://z.xiemen.me
+  neko:
+    image_url: /images/actors/neko.png
+    name: 猫
+    url: https://z.xiemen.me
+author: xiemenwaidao
+description: 集讚館で日々いいねしたツイートを、動物キャラの親友2人 (ウサギと猫) が振り返るウィークリーポッドキャスト。
+description_long: 集讚館ラジオは、タイムラインに流れてきたいいねの履歴を、親友2人 (ウサギと猫) が一緒に振り返るウィークリーポッドキャストです。AI・プログラミング・アート・ゲーム・カルチャーなど、その週に集まった話題を、関連リンクやニュースの文脈も交えながらゆっくり辿ります。ナレーションはすべて合成音声でお届けしています。
+email: codas-bringer7r@icloud.com
 exclude:
   - docker
   - docker-compose.yml
@@ -20,14 +20,15 @@ exclude:
   - README.md
   - vendor
 google_analytics:
-hashtag: examplehashtag
+hashtag: xlikesradio
 itunes_podcast_url:
-keywords: comma,separated,keywords
+keywords: 集讚館,いいね,podcast,AI,programming,アート,ゲーム
 language: ja
 markdown: kramdown
 permalink: /episode/:title
 sass:
   sass_dir: css
 timezone: Asia/Tokyo
-title: Example title
-url: http://example.com
+title: 集讚館ラジオ
+url: https://xiemenwaidao.github.io
+baseurl: /x-likes-radio
