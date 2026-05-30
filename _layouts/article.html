@@ -48,6 +48,23 @@
                         <span class="chapter-toc-time">{{ mm }}:{{ ss | prepend: '00' | slice: -2, 2 }}</span>
                         <span class="chapter-toc-label">{{ chapter.label }}</span>
                       </button>
+                      {% if chapter.tweets and chapter.tweets.size > 0 %}
+                        <ul class="chapter-toc-tweets">
+                          {% for tw in chapter.tweets %}
+                            {% assign tmm = tw.t | divided_by: 60 %}
+                            {% assign tss = tw.t | modulo: 60 %}
+                            <li class="chapter-toc-tweet">
+                              <button type="button" class="chapter-toc-link chapter-toc-tweet-seek" data-seek="{{ tw.t }}">
+                                <span class="chapter-toc-time">{{ tmm }}:{{ tss | prepend: '00' | slice: -2, 2 }}</span>
+                              </button>
+                              <a class="chapter-toc-tweet-link" href="{{ tw.url }}" target="_blank" rel="noopener noreferrer">
+                                <span class="chapter-toc-tweet-handle">@{{ tw.handle }}</span>
+                                {% if tw.summary %}<span class="chapter-toc-tweet-summary">{{ tw.summary }}</span>{% endif %}
+                              </a>
+                            </li>
+                          {% endfor %}
+                        </ul>
+                      {% endif %}
                     </li>
                   {% endfor %}
                 </ul>
