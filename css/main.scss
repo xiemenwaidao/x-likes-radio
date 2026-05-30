@@ -19,3 +19,6 @@
 @import "blocks/markdown";
 @import "blocks/responsive";
 @import "blocks/utilities";
+
+// 最後に dark / chill テーマで上書き (集讚館.fm)
+@import "blocks/theme-dark";

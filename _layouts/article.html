@@ -21,6 +21,7 @@
             {% if page.audio_file_path contains '://' %}{% assign audio_url = page.audio_file_path %}{% else %}{% assign audio_url = page.audio_file_path | prepend:site.github.url %}{% endif %}
             <p>
               <audio
+                id="episode-audio"
                 class="mejs-player"
                 controls=""
                 data-mejsoptions='{"alwaysShowControls": true, "alwaysShowHours": true, "enableAutosize": true, "features": ["playpause", "progress", "current", "duration", "volume", "speed"]}'
@@ -35,6 +36,23 @@
                 <a href="{{ audio_url }}">MP3ファイルをダウンロード</a>
               </small>
             </p>
+            {% if page.chapters %}
+              <nav class="chapter-toc" aria-label="目次">
+                <div class="chapter-toc-title">目次</div>
+                <ul class="chapter-toc-list">
+                  {% for chapter in page.chapters %}
+                    {% assign mm = chapter.t | divided_by: 60 %}
+                    {% assign ss = chapter.t | modulo: 60 %}
+                    <li class="chapter-toc-item">
+                      <button type="button" class="chapter-toc-link" data-seek="{{ chapter.t }}">
+                        <span class="chapter-toc-time">{{ mm }}:{{ ss | prepend: '00' | slice: -2, 2 }}</span>
+                        <span class="chapter-toc-label">{{ chapter.label }}</span>
+                      </button>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </nav>
+            {% endif %}
             <h2>
               内容紹介
             </h2>
@@ -65,5 +83,49 @@
       </div>
     </main>
     {% include footer.html %}
+    <script>
+      // 本文 (言及トピック / 参照リンク / ニュース等) のリンクは別タブで開く
+      (function () {
+        var body = document.querySelector('.article .markdown');
+        if (!body) return;
+        var links = body.querySelectorAll('a[href]');
+        for (var i = 0; i < links.length; i++) {
+          var href = links[i].getAttribute('href') || '';
+          if (href.charAt(0) === '#') continue; // ページ内アンカーは除外
+          links[i].setAttribute('target', '_blank');
+          links[i].setAttribute('rel', 'noopener noreferrer');
+        }
+      })();
+      // 目次クリックで audio をその時間へシークして再生
+      (function () {
+        var toc = document.querySelector('.chapter-toc');
+        var audio = document.getElementById('episode-audio');
+        if (!toc || !audio) return;
+        toc.addEventListener('click', function (e) {
+          var btn = e.target.closest('.chapter-toc-link');
+          if (!btn) return;
+          var t = parseFloat(btn.getAttribute('data-seek'));
+          if (isNaN(t)) return;
+          var seekAndPlay = function () {
+            try { audio.currentTime = t; } catch (err) {}
+            var p = audio.play();
+            if (p && p.catch) p.catch(function () {});
+          };
+          // メタデータ未読なら読めてからシーク
+          if (audio.readyState < 1) {
+            audio.addEventListener('loadedmetadata', seekAndPlay, { once: true });
+            audio.load();
+          } else {
+            seekAndPlay();
+          }
+          // クリックした目次をハイライト
+          var links = toc.querySelectorAll('.chapter-toc-link');
+          for (var i = 0; i < links.length; i++) links[i].removeAttribute('aria-current');
+          btn.setAttribute('aria-current', 'true');
+          // プレイヤーが画面外なら見えるところまでスクロール
+          audio.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+      })();
+    </script>
   </body>
 </html>

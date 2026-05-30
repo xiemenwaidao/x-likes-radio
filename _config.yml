@@ -13,7 +13,7 @@ actors:
     url: https://z.xiemen.me
 author: xiemenwaidao
 description: 集讚館で日々いいねしたツイートを、動物キャラの親友たち (うさぴょむ・猫・ゴリラ…) が振り返るウィークリーポッドキャスト。
-description_long: 集讚館ラジオは、タイムラインに流れてきたいいねの履歴を、動物キャラの親友たち (うさぴょむ・猫・ゴリラ…) が一緒に振り返るウィークリーポッドキャストです。AI・プログラミング・アート・ゲーム・カルチャーなど、その週に集まった話題を、関連リンクやニュースの文脈も交えながらゆっくり辿ります。ナレーションはすべて合成音声でお届けしています。
+description_long: 集讚館.fm は、タイムラインに流れてきたいいねの履歴を、動物キャラの親友たち (うさぴょむ・猫・ゴリラ…) が一緒に振り返るウィークリーポッドキャストです。AI・プログラミング・アート・ゲーム・カルチャーなど、その週に集まった話題を、関連リンクやニュースの文脈も交えながらゆっくり辿ります。ナレーションはすべて合成音声でお届けしています。
 email: codas-bringer7r@icloud.com
 exclude:
   - docker
@@ -33,6 +33,6 @@ permalink: /episode/:title
 sass:
   sass_dir: css
 timezone: Asia/Tokyo
-title: 集讚館ラジオ
+title: 集讚館.fm
 url: https://xiemenwaidao.github.io
 baseurl: /x-likes-radio

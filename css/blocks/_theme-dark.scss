@@ -1,0 +1,319 @@
+// =====================================================================
+// 集讚館.fm  dark / chill theme
+// 本体サイト (z.xiemen.me) の oklch パレットに合わせたダーク上書き。
+// main.scss の最後に import して既存の明るいテーマを上書きする。
+// =====================================================================
+
+$zk-bg-0: oklch(15% 0.012 250); // ページ最背面
+$zk-bg-1: oklch(18% 0.012 250); // カード面
+$zk-bg-2: oklch(22% 0.012 250); // 一段明るい面 (pre / player)
+$zk-bg-3: oklch(26% 0.012 250); // code inline 等
+$zk-line: oklch(35% 0.018 250 / 0.6);
+$zk-line-soft: oklch(28% 0.014 250 / 0.5);
+$zk-text-0: oklch(98% 0.005 250);
+$zk-text-1: oklch(86% 0.01 250);
+$zk-text-2: oklch(66% 0.014 250);
+$zk-text-3: oklch(48% 0.014 250);
+$zk-accent: oklch(68% 0.14 255); // ダーク背景で映える、やや明るめの青
+$zk-accent-soft: oklch(68% 0.14 255 / 0.16);
+
+$zk-font: 'Zen Maru Gothic', 'Hiragino Maru Gothic ProN', 'Hiragino Sans',
+  'Yu Gothic UI', 'Noto Sans JP', system-ui, -apple-system, sans-serif;
+$zk-font-heading: 'Zen Kaku Gothic New', 'Zen Maru Gothic', $zk-font;
+
+body {
+  background-color: $zk-bg-0;
+  color: $zk-text-1;
+  font-family: $zk-font;
+  font-size: 16px;
+  line-height: 1.85;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  &,
+  &:active,
+  &:focus,
+  &:hover {
+    color: $zk-accent;
+  }
+  &:hover {
+    color: oklch(76% 0.13 255);
+  }
+}
+
+// ---- main / container ----
+.main {
+  background-color: $zk-bg-0;
+  padding-top: 40px;
+  padding-bottom: 56px;
+}
+
+// ---- card ----
+.card {
+  background-color: $zk-bg-1;
+  border-radius: 16px;
+  box-shadow:
+    inset 0 0 0 0.5px $zk-line-soft,
+    0 10px 36px rgba(0, 0, 0, 0.38);
+
+  &-heading {
+    font-family: $zk-font-heading;
+    letter-spacing: 0.02em;
+  }
+}
+
+.card-body,
+.card-header {
+  padding-left: 28px;
+  padding-right: 28px;
+}
+
+// ---- article header ----
+.article-header {
+  .card-heading a {
+    color: $zk-text-0;
+  }
+  &-note {
+    color: $zk-text-3;
+    font-family: $zk-font-heading;
+  }
+}
+
+// ---- markdown body ----
+.markdown {
+  color: $zk-text-1;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    color: $zk-text-0;
+    font-family: $zk-font-heading;
+    letter-spacing: 0.02em;
+  }
+
+  h2 {
+    border-bottom: 1px solid $zk-line-soft;
+    padding-bottom: 0.35rem;
+  }
+
+  h6 {
+    color: $zk-text-3;
+  }
+
+  a {
+    color: $zk-accent;
+    text-decoration: underline;
+    text-decoration-color: $zk-accent-soft;
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.12s, color 0.12s;
+    &:hover {
+      text-decoration-color: $zk-accent;
+    }
+  }
+
+  strong {
+    color: $zk-text-0;
+  }
+
+  blockquote {
+    border-left-color: $zk-line;
+    color: $zk-text-2;
+  }
+
+  > code,
+  code {
+    background-color: $zk-bg-3;
+    color: $zk-text-0;
+  }
+
+  pre {
+    background-color: $zk-bg-2;
+    color: $zk-text-1;
+    > code,
+    code {
+      color: $zk-text-1;
+    }
+  }
+
+  kbd {
+    background-color: $zk-bg-3;
+    border-color: $zk-line;
+    border-bottom-color: $zk-line;
+    box-shadow: inset 0 -1px 0 $zk-line;
+    color: $zk-text-1;
+  }
+
+  hr {
+    background-color: $zk-line-soft;
+    border-bottom-color: $zk-line-soft;
+  }
+
+  table {
+    td,
+    th {
+      border-color: $zk-line-soft;
+    }
+    tr {
+      border-top-color: $zk-line-soft;
+      &:nth-child(2n) {
+        background-color: oklch(20% 0.012 250);
+      }
+    }
+  }
+}
+
+// ---- header (artwork 背景 + overlay) ----
+.header {
+  &-overlay {
+    background: linear-gradient(
+      180deg,
+      oklch(15% 0.012 250 / 0.45) 0%,
+      oklch(15% 0.012 250 / 0.82) 100%
+    );
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  &-heading {
+    font-family: $zk-font-heading;
+    color: $zk-text-0;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+    letter-spacing: 0.04em;
+  }
+  &-description {
+    color: rgba(255, 255, 255, 0.78);
+  }
+}
+
+// ---- footer ----
+.footer {
+  background-color: $zk-bg-1;
+  color: $zk-text-2;
+  border-top: 1px solid $zk-line-soft;
+
+  a {
+    color: $zk-accent;
+  }
+  &-copyright {
+    color: $zk-text-3;
+  }
+  &-sections-element-heading {
+    color: $zk-text-0;
+    font-family: $zk-font-heading;
+  }
+}
+
+// ---- index 一覧 (list-group) ----
+.list-group-element {
+  color: $zk-text-1;
+  border-bottom: 1px solid $zk-line-soft;
+  transition: background 0.12s;
+
+  &:hover {
+    background-color: oklch(20% 0.012 250 / 0.6);
+  }
+  &-heading {
+    color: $zk-text-0;
+    font-family: $zk-font-heading;
+  }
+}
+
+// ---- actor (出演者) ----
+.actor {
+  color: $zk-text-1;
+  &-image {
+    box-shadow: 0 0 0 1px $zk-line;
+  }
+}
+
+// ---- MediaElement プレイヤーをダーク面に馴染ませる ----
+.mejs-container,
+.mejs-controls,
+.mejs-embed,
+.mejs-embed body {
+  background: $zk-bg-2 !important;
+}
+.mejs-controls .mejs-time-rail .mejs-time-loaded {
+  background: $zk-line !important;
+}
+.mejs-controls .mejs-time-rail .mejs-time-current {
+  background: $zk-accent !important;
+}
+
+// =====================================================================
+// 章目次 (chapter TOC) — クリックで audio をその時間へシーク
+// =====================================================================
+.chapter-toc {
+  margin: 8px 0 24px;
+  padding: 16px 18px;
+  background-color: oklch(20% 0.012 250 / 0.6);
+  border: 1px solid $zk-line-soft;
+  border-radius: 12px;
+
+  &-title {
+    font-family: $zk-font-heading;
+    font-size: 0.82rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: $zk-text-3;
+    margin-bottom: 10px;
+  }
+
+  &-list {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  &-item {
+    margin: 0 !important;
+    & + & {
+      border-top: 1px solid $zk-line-soft;
+    }
+  }
+
+  &-link {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    padding: 9px 6px;
+    border-radius: 8px;
+    color: $zk-text-1;
+    font: inherit;
+    text-decoration: none !important;
+    transition: background 0.12s, color 0.12s;
+
+    &:hover {
+      background-color: $zk-accent-soft;
+      color: $zk-text-0;
+    }
+
+    &[aria-current='true'] {
+      background-color: $zk-accent-soft;
+      color: $zk-text-0;
+      box-shadow: inset 2px 0 0 $zk-accent;
+    }
+  }
+
+  &-time {
+    flex: none;
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'tnum' 1;
+    color: $zk-accent;
+    font-size: 0.86rem;
+    min-width: 3.2em;
+  }
+
+  &-label {
+    flex: 1;
+  }
+}
