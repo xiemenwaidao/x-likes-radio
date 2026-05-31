@@ -11,6 +11,10 @@ actors:
     image_url: /images/actors/gorilla.png
     name: ゴリラ
     url: https://z.xiemen.me
+  niwatori:
+    image_url: /images/actors/niwatori.png
+    name: コケコッコ
+    url: https://z.xiemen.me
 author: xiemenwaidao
 description: 集讚館で日々いいねしたツイートを、動物キャラの親友たち (うさぴょむ・猫・ゴリラ…) が振り返るウィークリーポッドキャスト。
 description_long: 集讚館.fm は、タイムラインに流れてきたいいねの履歴を、動物キャラの親友たち (うさぴょむ・猫・ゴリラ…) が一緒に振り返るウィークリーポッドキャストです。AI・プログラミング・アート・ゲーム・カルチャーなど、その週に集まった話題を、関連リンクやニュースの文脈も交えながらゆっくり辿ります。ナレーションはすべて合成音声でお届けしています。
