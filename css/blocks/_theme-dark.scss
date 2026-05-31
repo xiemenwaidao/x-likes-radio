@@ -326,10 +326,10 @@ a {
 
   &-tweet {
     display: flex;
-    align-items: baseline;
+    align-items: flex-start; // 要約が複数行になるので上揃え
     gap: 6px;
     margin: 0 !important;
-    padding: 0 !important;
+    padding: 2px 0 !important;
   }
 
   // タイム部分は seek ボタン (chapter-toc-link を継承するので幅を上書き)
@@ -344,13 +344,14 @@ a {
     }
   }
 
-  // ハンドル + 要約は X へのリンク (別タブ)
+  // ハンドル + 要約 (省略なし全文) は X へのリンク (別タブ)
   &-tweet-link {
     flex: 1;
     min-width: 0;
     display: flex;
     align-items: baseline;
-    gap: 8px;
+    flex-wrap: wrap; // ハンドルの後に要約が複数行で続く
+    gap: 2px 8px;
     padding: 5px 4px;
     border-radius: 8px;
     color: $zk-text-2;
@@ -369,13 +370,14 @@ a {
     font-size: 0.82rem;
   }
 
+  // トピックを廃止し、要約はここに省略なしで全文掲載するため折り返す
   &-tweet-summary {
     flex: 1;
     min-width: 0;
     color: $zk-text-3;
     font-size: 0.8rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+    text-wrap: pretty;
   }
 }
