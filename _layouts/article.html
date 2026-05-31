@@ -57,8 +57,8 @@
                               <button type="button" class="chapter-toc-link chapter-toc-tweet-seek" data-seek="{{ tw.t }}">
                                 <span class="chapter-toc-time">{{ tmm }}:{{ tss | prepend: '00' | slice: -2, 2 }}</span>
                               </button>
-                              <a class="chapter-toc-tweet-link" href="{{ tw.url }}" target="_blank" rel="noopener noreferrer">
-                                <span class="chapter-toc-tweet-handle">@{{ tw.handle }}</span>
+                              <a class="chapter-toc-tweet-link" href="https://x.com/{{ tw.username }}/status/{{ tw.id }}" target="_blank" rel="noopener noreferrer">
+                                <span class="chapter-toc-tweet-handle">@{{ tw.username }}</span>
                                 {% if tw.summary %}<span class="chapter-toc-tweet-summary">{{ tw.summary }}</span>{% endif %}
                               </a>
                             </li>
