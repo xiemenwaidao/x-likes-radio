@@ -31,14 +31,9 @@
               >
               </audio>
             </p>
-            <p class="text-right">
-              <small>
-                <a href="{{ audio_url }}">MP3ファイルをダウンロード</a>
-              </small>
-            </p>
             {% if page.chapters %}
-              <nav class="chapter-toc" aria-label="目次">
-                <div class="chapter-toc-title">目次</div>
+              <nav class="chapter-toc" aria-label="チャプター">
+                <div class="chapter-toc-title">チャプター</div>
                 <ul class="chapter-toc-list">
                   {% for chapter in page.chapters %}
                     {% assign mm = chapter.t | divided_by: 60 %}
